@@ -28,13 +28,16 @@ public class GraphQLService {
     @Value("classpath:books.graphql")
     Resource resource;
 
+    public GraphQLService(AllBooksDataFetcher allBooksDataFetcher, BookDataFetcher bookDataFetcher, BookRepository bookRepository) {
+        this.allBooksDataFetcher = allBooksDataFetcher;
+        this.bookDataFetcher = bookDataFetcher;
+        this.bookRepository = bookRepository;
+    }
+
     private GraphQL graphQL;
-    @Autowired
     private AllBooksDataFetcher allBooksDataFetcher;
-    @Autowired
     private BookDataFetcher bookDataFetcher;
-    @Autowired
-    BookRepository bookRepository;
+    private BookRepository bookRepository;
 
 
     @PostConstruct
