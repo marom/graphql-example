@@ -17,6 +17,6 @@ public class BookDataFetcher implements DataFetcher<Book> {
 
     @Override
     public Book get(DataFetchingEnvironment environment) {
-        return bookRepository.findById(environment.getArgument("id")).get().;
+        return bookRepository.findById(environment.getArgument("id")).get();
     }
 }
