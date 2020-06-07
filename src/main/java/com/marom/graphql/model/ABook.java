@@ -38,6 +38,7 @@ public class ABook {
         this.title = title;
         this.isbn = isbn;
         this.pageCount = pageCount;
+        this.author = author;
     }
 
 }
