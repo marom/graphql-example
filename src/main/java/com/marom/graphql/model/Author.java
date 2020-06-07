@@ -8,8 +8,6 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Table
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -26,10 +24,12 @@ public class Author {
     @Column(name="author_last_name", nullable = false)
     private String lastName;
 
+    public Author() {
+    }
+
     public Author(Long id) {
         this.id = id;
     }
-
     public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
