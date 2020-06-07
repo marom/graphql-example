@@ -21,5 +21,8 @@ public class Author {
     private String firstName;
     private String lastName;
 
+    public Author(Long id) {
+        this.id = id;
+    }
 
 }
