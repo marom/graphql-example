@@ -1,6 +1,11 @@
 package com.marom.graphql;
 
 import com.marom.graphql.exception.GraphQLErrorAdapter;
+import com.marom.graphql.repository.ABookRepository;
+import com.marom.graphql.repository.AuthorRepository;
+import com.marom.graphql.resolver.ABookResolver;
+import com.marom.graphql.resolver.Mutation;
+import com.marom.graphql.resolver.Query;
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
@@ -44,5 +49,21 @@ public class GraphqlExampleApplication {
             }
         };
     }
+
+    @Bean
+    public ABookResolver authorResolver(AuthorRepository authorRepository) {
+        return new ABookResolver(authorRepository);
+    }
+
+    @Bean
+    public Query query(AuthorRepository authorRepository, ABookRepository bookRepository) {
+        return new Query(authorRepository, bookRepository);
+    }
+
+    @Bean
+    public Mutation mutation(AuthorRepository authorRepository, ABookRepository bookRepository) {
+        return new Mutation(authorRepository, bookRepository);
+    }
+
 
 }
