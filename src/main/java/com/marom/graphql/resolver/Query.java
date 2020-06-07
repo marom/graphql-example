@@ -5,8 +5,10 @@ import com.marom.graphql.model.ABook;
 import com.marom.graphql.model.Author;
 import com.marom.graphql.repository.ABookRepository;
 import com.marom.graphql.repository.AuthorRepository;
+import org.springframework.stereotype.Component;
 
 
+@Component
 public class Query implements GraphQLQueryResolver {
 
     private ABookRepository bookRepository;

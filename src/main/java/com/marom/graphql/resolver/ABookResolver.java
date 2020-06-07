@@ -4,7 +4,9 @@ import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.marom.graphql.model.ABook;
 import com.marom.graphql.model.Author;
 import com.marom.graphql.repository.AuthorRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ABookResolver implements GraphQLResolver<ABook> {
 
     private AuthorRepository authorRepository;
