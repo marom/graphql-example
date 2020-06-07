@@ -1,6 +1,8 @@
 package com.marom.graphql;
 
 import com.marom.graphql.exception.GraphQLErrorAdapter;
+import com.marom.graphql.model.ABook;
+import com.marom.graphql.model.Author;
 import com.marom.graphql.repository.ABookRepository;
 import com.marom.graphql.repository.AuthorRepository;
 import com.marom.graphql.resolver.ABookResolver;
@@ -9,6 +11,7 @@ import com.marom.graphql.resolver.Query;
 import graphql.ExceptionWhileDataFetching;
 import graphql.GraphQLError;
 import graphql.servlet.GraphQLErrorHandler;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -65,5 +68,14 @@ public class GraphqlExampleApplication {
         return new Mutation(authorRepository, bookRepository);
     }
 
+    @Bean
+    public CommandLineRunner demo(AuthorRepository authorRepository, ABookRepository bookRepository) {
+        return (args) -> {
+            Author author = new Author("Herbert", "Schildt");
+            authorRepository.save(author);
+
+            bookRepository.save(new ABook("Java: A Beginner's Guide, Sixth Edition", "0071809252", 728, author));
+        };
+    }
 
 }
