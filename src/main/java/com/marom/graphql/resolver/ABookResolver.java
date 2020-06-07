@@ -14,6 +14,6 @@ public class ABookResolver implements GraphQLResolver<ABook> {
     }
 
     public Author getAuthor(ABook book) {
-        return authorRepository.findOne(book.getAuthor().getId());
+        return authorRepository.findById(book.getAuthor().getId()).get()    ;
     }
 }
