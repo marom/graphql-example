@@ -54,21 +54,6 @@ public class GraphqlExampleApplication {
     }
 
     @Bean
-    public ABookResolver authorResolver(AuthorRepository authorRepository) {
-        return new ABookResolver(authorRepository);
-    }
-
-    @Bean
-    public Query query(AuthorRepository authorRepository, ABookRepository bookRepository) {
-        return new Query(authorRepository, bookRepository);
-    }
-
-    @Bean
-    public Mutation mutation(AuthorRepository authorRepository, ABookRepository bookRepository) {
-        return new Mutation(authorRepository, bookRepository);
-    }
-
-    @Bean
     public CommandLineRunner demo(AuthorRepository authorRepository, ABookRepository bookRepository) {
         return (args) -> {
             Author author = new Author("Herbert", "Schildt");
